@@ -115,6 +115,20 @@ function filterProduct(value) {
   })
 }
 
+let buttonBack = document.createElement('button');
+buttonBack.classList.add('button-back');
+let imageBack = document.createElement('img');
+imageBack.setAttribute('src', 'images/back.png');
+buttonBack.appendChild(imageBack);
+document.getElementById('buttons').appendChild(buttonBack);
+
+buttonBack.addEventListener('click', () => {
+  let nav = document.getElementById('buttons');
+  nav.classList.remove('open');
+  void nav.offsetWidth; // Trigger reflow to restart the animation
+  document.getElementById('buttons').classList.add('close');
+})
+
 document.getElementById('search').addEventListener
 ('click', () => {
   let searchInput = document.getElementById
@@ -131,6 +145,26 @@ document.getElementById('search').addEventListener
       cards[index].classList.add('hide');
     }
   })
+})
+
+document.getElementById('burger').addEventListener
+('click', () => {
+  let nav = document.getElementById('buttons');
+  nav.classList.remove('close');
+  void nav.offsetWidth; // Trigger reflow to restart the animation
+  nav.classList.add('open');
+});
+
+document.addEventListener('click', (event) => {
+  if (!document.getElementById('buttons').contains(event.target) &&
+      !document.getElementById('burger').contains(event.target)) {
+    let nav = document.getElementById('buttons');
+    if (nav.classList.contains('open')) {
+      nav.classList.remove('open');
+      void nav.offsetWidth; // Trigger reflow to restart the animation
+      nav.classList.add('close');
+    }
+  }
 })
 
 window.onload = () => {
