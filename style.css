@@ -185,21 +185,18 @@ body{
     padding: 3px;
   }
   .card img {
-    height: 15em;
-  }
-  .wrapper{
-    width: 95%;
+    height: 18em;
   }
   #search-container #search{
     padding-inline: 0.4em;
   }
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 440px){
   .card img {
-      height: 13em;
+      height: 15em;
   }
 }
-@media screen and (max-width: 430px){
+@media screen and (max-width: 370px){
   .card img {
     height: 12em;
   }
